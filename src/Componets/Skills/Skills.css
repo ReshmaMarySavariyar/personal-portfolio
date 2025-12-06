@@ -1,0 +1,89 @@
+.skills-table {
+  width: 100%;
+  margin-bottom: 40px;
+  background: #111;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 28px 20px;
+  color: #fff;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.skills-table h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  color: #fff;
+  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skills-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skills-table td {
+  padding: 22px 14px;
+  border-bottom: 1px solid #222;
+  vertical-align: top;
+  font-size: 1.05rem;
+  color: #fff;
+  background: none;
+  position: relative;
+}
+
+.skills-table tr:last-child td {
+  border-bottom: none;
+}
+
+.skills-table strong {
+  font-size: 1.15rem;
+  color: #fff;
+  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skill-progress-bg {
+  width: 100%;
+  height: 10px;
+  background: #222;
+  border-radius: 6px;
+  margin: 10px 0 8px 0;
+  overflow: hidden;
+}
+
+.skill-progress-bar {
+  height: 100%;
+  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+  border-radius: 6px;
+  transition: width 0.7s;
+}
+
+.skill-list {
+  font-size: 0.98rem;
+  color: #fff;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .skills-table {
+    padding: 14px 6px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+  }
+  .skills-table h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .skills-table td {
+    padding: 10px 4px;
+    font-size: 0.95rem;
+  }
+}

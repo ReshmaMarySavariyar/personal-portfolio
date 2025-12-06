@@ -1,32 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import React, { useEffect } from "react";
+import ReactGA from "react-ga4";
+
+// Components
+import Navbar from './Componets/navbar/Navbar'
+import Hero from './Componets/Hero/Hero'
+import AboutMe from './Componets/About/AboutMe'
+import Contact from './Componets/Contact/Contact'
+import Footer from './Componets/Footer/Footer'
+import Experience from './Componets/Experience/Experience'
+import Skills from './Componets/Skills/Skills'
 
 function App() {
-  const [count, setCount] = useState(0)
+      useEffect(() => {
+    // Initialize Google Analytics with your Measurement ID
+    ReactGA.initialize("G-TXG5NTZZ39");
+    ReactGA.send("pageview");
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Reshma Balaji</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Avaaaa {count}
-        </button>
-       
-      </div>
-      <p className="read-the-docs">
-      Click on ava u get ava from Reshma(Ur wife)
-      </p>
-    </>
+    <div>
+      <Navbar />
+      <Hero />
+      <AboutMe />
+      <Experience />
+      <Skills />
+      <Contact />
+      <Footer />
+    </div>
   )
 }
 
