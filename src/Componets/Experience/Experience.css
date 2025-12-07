@@ -1,354 +1,202 @@
-
-
-
-
+/* --- Global Container Styles (Kept from your original code) --- */
 .myProject{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 170px;
-}
-.myProject_title{
-    position: relative;
-
+    margin: 80px 170px; /* Adjust this margin to fit your overall layout */
+    color: #fff; /* Ensure default text color is white/light */
 }
 .myProject_title h1{
     padding: 0px 30px;
     font-size: 60px;
     font-weight: 600;
+    /* Applying your gradient to the main title */
+    background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106.28%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+/* ... Keep other existing .myProject styles ... */
+
+/* --- NEW EYE-CATCHING TIMELINE STYLES --- */
+
+.experience-timeline-container {
+    width: 100%;
+    max-width: 900px; /* Constraint width for better readability */
+    position: relative;
+    padding: 0 10px;
 }
 
-.Myproject-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-}
-.Myproject-container img{
-    box-sizing: border-box;
-    width: 419px;
-    height: 280px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-.Myproject-container img:hover{
-    transform: scale(1.10);
-    border: 4px solid hsl(0, 14%, 91%);
-    border-radius: 10px;
-    transition: 0.3s;
+/* The vertical timeline line itself */
+.experience-timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, #b415ff, #df8908); /* Gradient timeline */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 1;
 }
 
-.project-card h2 {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 10px 0 5px;
+.timeline-item {
+    padding: 10px 0;
+    position: relative;
+    width: 50%; /* Each item takes up half the width */
+    z-index: 2;
 }
 
-.project-card p {
-  font-size: 14px;
-  color: #ccc;
-  padding: 0 10px;
-  margin-bottom: 10px;
+/* Alternate items to left and right */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 40px; /* Space for the line and dot */
+    text-align: right;
 }
 
-.project-buttons {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 10px;
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 40px; /* Space for the line and dot */
+    text-align: left;
 }
 
-.project-buttons button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* --- DOT (The eye-catching element on the line) --- */
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1a1a1a; /* Dark background to match theme */
+    border: 3px solid;
+    /* Use the gradient for the border */
+    border-image: linear-gradient(45deg, #df8908, #b415ff) 1;
+    top: 30px; /* Adjust vertical position */
+    z-index: 3;
+}
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px; /* Position on the left item */
+}
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px; /* Position on the right item */
 }
 
-.my-Github{
-    color: black;
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 50px;
-    border: 2px solid #fff;
-    cursor: pointer;
-    text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+/* --- CONTENT CARD --- */
+.timeline-content-card {
+    background-color: #2a2a2a; /* Dark card background */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 3px solid #df8908; /* Left border accent */
 }
 
-
-.project-buttons a:first-child button {
-  background-color:white;
-  color: black;
-  
+.timeline-item:nth-child(odd) .timeline-content-card {
+    border-left: none;
+    border-right: 3px solid #b415ff; /* Right border accent for left items */
 }
 
-.project-buttons a:first-child button:hover {
-  background-color: hsl(0, 14%, 91%);
+.timeline-content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
 }
 
-.project-buttons a:last-child button {
-  background-color: white;
-  color: black;
-  border-color: rgb(31, 12, 12);
+.timeline-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff; /* White title */
+    margin-bottom: 5px;
 }
 
-.project-buttons a:last-child button:hover {
-  background-color:  hsl(0, 14%, 91%);
-  border-color: black;
+.timeline-company {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ccc;
+    margin-bottom: 15px;
 }
 
-.my-Github:hover{
-    border-color: black;
-    background-color:hsl(0, 14%, 91%);
+.timeline-duration {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #df8908; /* Use accent color for duration */
+    margin-bottom: 5px;
+    display: block;
 }
 
-
-@media (max-width: 768px) {
-/* Project section */
-.myProject {
-margin: 60px 40px;
-gap: 50px;
-}
-.Myproject-container {
-grid-template-columns: repeat(2, 1fr);
-gap: 30px;
-}
-.Myproject-container img {
-width: 100%;
-height: auto;
+.timeline-location {
+    color: #b415ff; /* Use second accent color for location */
+    font-style: italic;
+    font-weight: 400;
 }
 
-/* Footer */
-.footer {
-margin: 40px 40px;
-}
-.footer-top {
-flex-wrap: wrap;
-gap: 30px;
-}
-.footer-top-left,
-.footer-top-right {
-flex: 1 1 45%;
-}
-.footer-bottom {
-flex-wrap: wrap;
-text-align: center;
-gap: 10px;
-}
-.footer-bottom-right {
-gap: 20px;
-}
+.timeline-highlights {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
 }
 
-/* === MOBILE (up to 600px) === */
-@media (max-width: 600px) {
-/* Project section */
-.myProject {
-margin: 40px 20px;
-gap: 30px;
-}
-.myProject_title h1 {
-font-size: 36px;
-padding: 0 10px;
-}
-.Myproject-container {
-grid-template-columns: 1fr;
-gap: 20px;
-}
-.Myproject-container img {
-width: 100%;
-height: auto;
-}
-.project-card h2 {
-font-size: 18px;
-}
-.project-card p {
-font-size: 13px;
-}
-.project-buttons {
-    flex-direction: column;
-    flex-direction: row;
-gap: 8px;
-}
-.my-Github {
-padding: 16px 24px;
-}}
-
-/* PROJECT - responsive adjustments */
-.myProject { margin: 80px auto; max-width: var(--content-max); padding: 0 20px; }
-
-/* adjust grid progressively */
-@media (max-width: 1366px) {
-  .Myproject-container { grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .Myproject-container img { max-width: 100%; height: auto; }
+.timeline-highlights li {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
 }
 
-@media (max-width: 1024px) {
-  .Myproject-container { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+/* Custom list marker using the gradient */
+.timeline-highlights li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1em;
+    /* Use the gradient for the bullet point */
+    background: linear-gradient(45deg, #df8908, #b415ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-@media (max-width: 600px) {
-  .Myproject-container { grid-template-columns: 1fr; gap: 18px; }
-  .myProject_title h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
-  .project-card h2 { font-size: 1.1rem; }
-  .project-buttons { gap: 8px; flex-wrap: wrap; justify-content:center; }
-}
-/* .Myproject-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
+/* --- MEDIA QUERIES FOR MOBILE (Single column timeline) --- */
+@media screen and (max-width: 768px) {
+    .myProject {
+        margin: 40px 20px;
+    }
 
-.project-card {
-  background: #32323c;
-  color: white;
-  padding: 20px;
-  border-radius: 15px;
-  width: 280px;
-  text-align: center;
-  transition: 0.3s;
-}
+    .experience-timeline-container::after {
+        left: 20px; /* Move line to the left edge */
+        margin-left: 0;
+    }
 
-.project-card:hover {
-  transform: scale(1.05);
-}
+    .timeline-item {
+        width: 100%; /* Full width */
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-.project-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-}
+    /* All items align to the right of the line */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        padding-left: 40px;
+        text-align: left;
+    }
 
-.project-buttons button {
-  background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106.28%);
-  border: none;
-  padding: 10px 25px;
-  border-radius: 30px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
+    /* Move duration/location to inside the card for mobile */
+    .timeline-duration {
+        display: none; 
+    }
+    
+    .timeline-content-card {
+        border-left: 3px solid #b415ff;
+        border-right: none;
+    }
 
-.project-buttons button:hover {
-  transform: scale(1.05);
-} */
-
-/* View More button */
-.view-more {
-  margin-top: 20px;
-  background: white;
-  border: none;
-  color: black;
-  padding: 12px 40px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.view-more:hover {
-  transform: scale(1.05);
-}
-
-/* Hide button on desktop */
-@media (min-width: 769px) {
-  .view-more {
-    display: none;
-  }
-}
-/* ...existing code... */
-
-.experience-table {
-  width: 100%;
-  margin-bottom: 40px;
-  background: #111; /* black background */
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 28px 20px;
-  color: #fff;
-  overflow: hidden;
-  border: 1px solid #222;
-}
-
-.experience-table h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 22px;
-  color: #fff;
-  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.experience-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.experience-table td {
-  padding: 22px 14px;
-  border-bottom: 1px solid #222;
-  vertical-align: top;
-  font-size: 1.05rem;
-  color: #fff;
-  background: none;
-  position: relative;
-}
-
-.experience-table tr:last-child td {
-  border-bottom: none;
-}
-
-.experience-table strong {
-  font-size: 1.15rem;
-  color: #fff;
-  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.experience-table em {
-  color: #DF8908;
-  font-size: 1rem;
-  margin-left: 8px;
-  font-style: normal;
-  font-weight: 500;
-}
-
-.experience-table ul {
-  margin: 12px 0 0 0;
-  padding-left: 18px;
-}
-
-.experience-table li {
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 7px;
-  line-height: 1.6;
-  background: none;
-}
-
-@media (max-width: 768px) {
-  .experience-table {
-    padding: 14px 6px;
-    margin-bottom: 24px;
-    border-radius: 10px;
-  }
-  .experience-table h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  .experience-table td {
-    padding: 10px 4px;
-    font-size: 0.95rem;
-  }
+    /* Move dot to the new line position */
+    .timeline-dot {
+        left: 12px;
+        right: auto;
+    }
 }

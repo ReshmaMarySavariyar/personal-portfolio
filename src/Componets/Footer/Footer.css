@@ -1,140 +1,177 @@
-.footer{
-    margin: 50px 170px;
+/* --- FOOTER WRAPPER: Contains the Gradient Border --- */
+.footer-wrapper {
+    width: 100%;
+    position: relative;
+    /* Optional: Add a slight shadow under the entire footer */
+}
+
+/* --- FOOTER MAIN CONTAINER --- */
+.footer {
+    margin: 50px auto 0 auto; /* Removed bottom margin, controlled by wrapper padding/height */
+    padding: 40px 170px 40px 170px; /* Increased top/bottom padding */
     display: flex;
     flex-direction: column;
-    gap: 30px;
-}
-.footer-top{
-    display: flex;
-    justify-content: space-between;
-}
-.footer-top-left p{
-    font-size: 20px;
-}
-.footer-top-right{
-    display: flex;
-    align-items: center;
     gap: 35px;
+    max-width: 1200px;
+    color: #f0f0f0;
 }
-.footer-email-input{
-    display: flex;
-    gap: 30px;
-    padding: 20px 30px;
-    border-radius: 80px;
-    background: #32322B;
-    padding-right: 80px;
+
+/* --- GRADIENT DIVIDER (Replaces old <hr>) --- */
+.footer-divider-glow {
+    height: 2px;
+    width: 100%;
+    /* Apply the primary gradient */
+    background: linear-gradient(90deg, #DF8908 0%, #B415FF 100%); 
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(180, 21, 255, 0.5); /* Subtle glow */
 }
-.footer-email-input input{
-    outline: none;
-    border: none;
-    background: transparent;
-    color: #a0a0a0;
-    font-family: outfit;
-    font-size: 18px;
-}
-.footer-subscribe{
-    font-size: 20px;
-    padding: 22px 50px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #df8908 -5.09%, #b415FF 106.28%);
-    cursor: pointer;
-    transition: 0.3s;
-}
-.footer-bottom{
+
+/* --- FOOTER TOP: Title and Philosophy --- */
+.footer-top {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    width: 100%;
 }
-.footer-bottom-right{
-    display: flex;
-    gap: 50px;
-    margin-bottom: 50px;
+
+.footer-top-left {
+    width: 100%;
+    max-width: 900px;
 }
-.footer-email-input:hover{
-    border: 2px solid white;
-}
-.footer-subscribe:hover {
-    transform: scale(1.1); 
-    transition: 0.3s;
-}
-.footer-top-left h1{
-     background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+
+.footer-title {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    /* Apply primary gradient to the title */
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Footer */
-@media (max-width: 768px)
- {
-  .footer {
-    margin: 30px 20px;
-    gap: 20px;
-  }
-  .footer-top {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .footer-top-left h1 {
-    font-size: 24px;
-  }
-  .footer-top-left p {
+.footer-philosophy-text {
     font-size: 16px;
-    max-width: 100%;
-  }
-  .footer-top-right {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
-  .footer-email-input {
-    width: 100%;
-    padding-right: 20px;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 14px;
-    text-align: center;
-  }
-  .footer-bottom-right {
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-  }
+    line-height: 1.6;
+    color: #cccccc;
 }
 
-
-/* FOOTER - responsive adjustments */
-.footer { margin: 50px auto; max-width: var(--content-max); padding: 0 20px; }
-
-/* laptop */
-@media (max-width: 1366px) {
-  .footer-top { gap: 25px; }
-  .footer-top-right { gap: 25px; }
+.footer-philosophy-text b {
+    color: #DF8908; /* Highlight the important words */
+    font-weight: 600;
 }
 
-/* tablet */
+.footer-achievements {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.footer-achievements strong {
+    color: #B415FF;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-achievements ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.footer-achievements li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 4px;
+    color: #a0a0a0;
+}
+
+.footer-achievements li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #DF8908; /* Use accent color for bullets */
+    font-weight: bold;
+}
+
+/* --- FOOTER BOTTOM: Copyright and Links --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.footer-bottom-left {
+    color: #999;
+}
+
+.footer-bottom-right {
+    display: flex;
+    gap: 30px; /* Reduced gap */
+}
+
+.footer-connect {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.footer-bottom-right p {
+    margin: 0;
+}
+
+.connect-link {
+    color: #B415FF; /* Purple accent for links */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.connect-link:hover {
+    color: #DF8908; /* Orange accent on hover */
+    text-decoration: underline;
+}
+
+.footer-thanks {
+    color: #DF8908; /* Orange accent for thank you message */
+    font-weight: 600;
+}
+
+/* Removed old/unused styles related to email input:
+.footer-top-right, .footer-email-input, .footer-email-input input, .footer-subscribe
+*/
+
+
+/* --- MEDIA QUERIES --- */
 @media (max-width: 1024px) {
-  .footer-top-left p { max-width: 100%; }
+    .footer {
+        padding: 40px 60px;
+    }
 }
 
-/* mobile */
 @media (max-width: 768px) {
-  .footer { margin: 30px 20px; gap: var(--gap-md); }
-  .footer-top { flex-direction: column; gap: 18px; }
-  .footer-email-input { padding-right: 20px; width: 100%; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align:center; }
-  .footer-bottom-right { justify-content:center; gap: 15px; flex-wrap:wrap; }
-}
-.footer-connect{
-  display: flex;
-}
-.footer-top {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-}
-.footer-top-left {
-  width: 100%;
+    .footer {
+        margin: 30px 20px 0 20px;
+        padding: 20px;
+        gap: 25px;
+    }
+    .footer-title {
+        font-size: 30px;
+    }
+    .footer-top {
+        flex-direction: column;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .footer-bottom-right {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .footer-philosophy-text, .footer-achievements {
+        font-size: 15px;
+    }
 }

@@ -1,0 +1,161 @@
+/* --- Global Container Styles (Reusing your myProject structure) --- */
+.myProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px 170px; /* Use the standard section margin */
+    color: #fff;
+}
+
+/* --- Section Title (Must use the gradient theme) --- */
+.myProject_title h1 {
+    font-size: 60px;
+    font-weight: 700;
+    padding: 0px 30px;
+    /* Applying your portfolio-wide gradient */
+    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Grid Layout (Retained from previous step) --- */
+.skills-grid {
+    display: grid;
+    /* Create a responsive grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Slightly increased gap for visual separation */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* --- Individual Skill Card (EYE-CATCHING GRADIENT BORDER) --- */
+.soft-skill-card-fancy {
+    background-color: #1a1a1a; /* Very dark background */
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* Needed for the pseudo-element border */
+    overflow: hidden; /* Important to contain the pseudo-element */
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+}
+
+/* Create the gradient border using a pseudo-element */
+.soft-skill-card-fancy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 3px; /* Controls the border thickness */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #DF8908, #B415FF); /* Your main gradient */
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 0;
+    opacity: 0.5; /* Subtle border */
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.soft-skill-card-fancy:hover::before {
+    opacity: 1; /* Make the gradient border strong on hover */
+    transform: translateY(-5px); /* Lift the pseudo-element for a subtle 3D effect */
+}
+
+.soft-skill-card-fancy:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    z-index: 1; /* Ensure content is above the pseudo-border */
+}
+
+.skill-icon {
+    font-size: 36px; /* Larger icon */
+    margin-right: 15px;
+    /* Give the icon a glow/gradient effect */
+    background: linear-gradient(45deg, #DF8908, #B415FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.skill-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.skill-description {
+    font-size: 0.95em;
+    color: #cccccc;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 15px;
+    z-index: 1;
+}
+
+.skill-footer {
+    padding-top: 15px;
+    border-top: 1px solid #3d3d3d;
+    display: flex;
+    justify-content: flex-start; /* Align philosophy to the left */
+    font-size: 0.9em;
+    z-index: 1;
+}
+
+.philosophy-text {
+    /* Accent the philosophy text with the gradient color */
+    color: #DF8908; 
+    font-weight: 600;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+@media (max-width: 768px) {
+    .myProject {
+        margin: 40px 20px;
+        gap: 40px;
+    }
+    .myProject_title h1 {
+        font-size: 40px;
+        padding: 0 10px;
+    }
+    .skills-grid {
+        gap: 20px;
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .soft-skill-card-fancy {
+        min-height: auto;
+    }
+    .skill-icon {
+        font-size: 30px;
+    }
+    .skill-title {
+        font-size: 1.2em;
+    }
+    .skill-description {
+        font-size: 0.9em;
+    }
+}
+
+/* Removed old, unneeded skills-table styles */

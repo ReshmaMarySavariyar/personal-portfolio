@@ -1,89 +1,177 @@
-.skills-table {
-  width: 100%;
-  margin-bottom: 40px;
-  background: #111;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 28px 20px;
-  color: #fff;
-  overflow: hidden;
-  border: 1px solid #222;
+/* --- Global Section Layout (Retained) --- */
+.myProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px 170px;
 }
 
-.skills-table h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 22px;
-  color: #fff;
-  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.myProject_title h1 {
+    font-size: 60px;
+    font-weight: 700;
+    padding: 0px 30px;
+    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.skills-table table {
-  width: 100%;
-  border-collapse: collapse;
+/* --- Grid Container Styles (Retained) --- */
+.skills-grid-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 28px 20px;
+    border-radius: 16px;
+    background: #111;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    border: 1px solid #222;
 }
 
-.skills-table td {
-  padding: 22px 14px;
-  border-bottom: 1px solid #222;
-  vertical-align: top;
-  font-size: 1.05rem;
-  color: #fff;
-  background: none;
-  position: relative;
+.skills-grid-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #fff;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.skills-table tr:last-child td {
-  border-bottom: none;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
 }
 
-.skills-table strong {
-  font-size: 1.15rem;
-  color: #fff;
-  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* --- Individual Skill Card (Retained) --- */
+.skill-card-item {
+    background: #222;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #333;
 }
 
+.skill-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(180, 21, 255, 0.2);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-category {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    cursor: pointer; /* Indicate it's clickable */
+    transition: color 0.2s;
+}
+
+.skill-category:hover {
+    color: #B415FF; /* Highlight on hover */
+}
+
+.skill-percent-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Progress Bar Styles (Enhanced) --- */
 .skill-progress-bg {
-  width: 100%;
-  height: 10px;
-  background: #222;
-  border-radius: 6px;
-  margin: 10px 0 8px 0;
-  overflow: hidden;
+    width: 100%;
+    height: 12px;
+    background: #333;
+    border-radius: 6px;
+    margin: 8px 0 15px 0;
+    overflow: hidden;
+    position: relative;
 }
 
 .skill-progress-bar {
-  height: 100%;
-  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-  border-radius: 6px;
-  transition: width 0.7s;
+    height: 100%;
+    background: linear-gradient(90deg, #B415FF 0%, #DF8908 100%); 
+    border-radius: 6px;
+    transition: width 1.2s ease-out; /* Smooth transition */
 }
 
-.skill-list {
-  font-size: 0.98rem;
-  color: #fff;
-  margin-top: 4px;
-  line-height: 1.5;
+/* --- NEW: Eye-Catching Skill Pills --- */
+.skill-list-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Space between pills */
+    margin-top: 15px;
 }
 
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #333; /* Dark background for the pill */
+    border: 1px solid #444;
+    transition: background-color 0.2s, transform 0.2s;
+    cursor: default;
+}
+
+.skill-pill:hover {
+    transform: translateY(-2px);
+    background-color: #444;
+}
+
+.pill-proficiency {
+    font-weight: 600;
+    color: #DF8908; /* Accent color for the percentage */
+    margin-left: 5px;
+}
+
+/* --- LOGO Styling (Placeholder - Replace with SVG or Icon Font) --- */
+.pill-logo {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: invert(100%); /* Make logos white against dark pill */
+}
+
+/* Specific Logo Placeholders (YOU NEED TO USE REAL IMAGES/ICONS HERE) */
+.logo-react .pill-logo { background-color: #61dafb; border-radius: 50%; } /* Placeholder for React logo */
+.logo-nextjs .pill-logo { background-color: #ffffff; border-radius: 50%; } /* Placeholder for Next.js logo */
+.logo-typescript .pill-logo { background-color: #007acc; } /* Placeholder for TypeScript logo */
+.logo-redux .pill-logo { background-color: #764abc; border-radius: 50%; } /* Placeholder for Redux logo */
+.logo-git .pill-logo { background-color: #f1502f; } /* Placeholder for Git logo */
+.logo-figma .pill-logo { background-color: #f24e1e; border-radius: 3px; } /* Placeholder for Figma logo */
+.logo-tailwind .pill-logo { background-color: #06b6d4; } /* Placeholder for Tailwind logo */
+
+
+/* --- MEDIA QUERIES (Retained) --- */
 @media (max-width: 768px) {
-  .skills-table {
-    padding: 14px 6px;
-    margin-bottom: 24px;
-    border-radius: 10px;
-  }
-  .skills-table h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  .skills-table td {
-    padding: 10px 4px;
-    font-size: 0.95rem;
-  }
+    .myProject { margin: 40px 20px; gap: 40px; }
+    .myProject_title h1 { font-size: 40px; padding: 0 10px; }
+    .skills-grid-container { padding: 20px 10px; }
+    .skills-grid-container h2 { font-size: 1.5rem; margin-bottom: 20px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 20px; }
+    .skill-card-item { padding: 15px; }
+    .skill-category { font-size: 1.1rem; }
+    .skill-percent-label { font-size: 1rem; }
+    .skill-pill { font-size: 0.8rem; padding: 5px 8px; }
 }

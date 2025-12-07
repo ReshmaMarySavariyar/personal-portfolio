@@ -13,6 +13,7 @@ import Contact from './Componets/Contact/Contact'
 import Footer from './Componets/Footer/Footer'
 import Experience from './Componets/Experience/Experience'
 import Skills from './Componets/Skills/Skills'
+import SoftSkills from './Componets/SoftSkills/SoftSkills'
 
 function App() {
       useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
       <AboutMe />
       <Experience />
       <Skills />
+      <SoftSkills />
       <Contact />
       <Footer />
     </div>

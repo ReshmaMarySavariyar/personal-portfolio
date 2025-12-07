@@ -1,135 +1,233 @@
-
+/* --- Global Section Layout --- */
 .about {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 80px;
+    gap: 60px; /* Reduced gap slightly */
     margin: 80px 170px;
+    color: #fff; /* Default text color */
 }
 
-.about-title {
+/* Title Style (Using your gradient) */
+.about-title h1 {
     position: relative;
     font-size: 60px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 0px 30px;
+    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
+/* Main Section Split */
 .about-section {
     display: flex;
     gap: 60px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .about-left img {
     display: block;
-    width: 250px;
-    border-radius: 10px;
+    width: 280px; /* Increased size slightly */
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    /* Added a subtle glow effect matching the gradient */
+    box-shadow: 0 0 25px rgba(180, 21, 255, 0.4); 
+    transition: transform 0.3s;
+}
+
+.about-left img:hover {
+    transform: scale(1.03);
 }
 
 .about-right {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 40px; /* Gap between bio card and skills card */
+    flex: 1;
 }
 
-.about-para {
+/* --- EYE-CATCHING CARD 1: BIO & PARAGRAPHS --- */
+.about-info-card {
+    background: rgba(40, 40, 40, 0.7); /* Semi-transparent dark background */
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: box-shadow 0.3s;
+}
+
+.about-info-card:hover {
+    box-shadow: 0 10px 40px 0 rgba(180, 21, 255, 0.5); /* Gradient-like glow on hover */
+}
+
+.about-info-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.about-tagline {
+    font-size: 20px !important;
+    font-weight: 600;
+    color: #ffffff !important;
+    /* Gradient highlight for the first line */
+    background: linear-gradient(264deg, #DF8908, #B415FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px !important;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #333;
+}
+
+/* --- EYE-CATCHING CARD 2: SKILLS & SOCIALS --- */
+.about-skills-and-socials {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 24px;
+    gap: 40px;
+    /* This section can be another gradient card or just a background */
+    background-color: #1a1a1a;
+    padding: 20px 0;
+}
+
+/* Tech Stack Grid */
+.tech-stack-grid {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: flex-start;
+}
+
+.tech-stack-grid h2 {
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.tech-skill-pill {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.95rem;
     font-weight: 500;
+    /* Gradient background for the pill */
+    background: linear-gradient(264deg, #df890833, #b415ff33); /* Semi-transparent gradient */
+    color: #fff;
+    border: 1px solid;
+    border-image: linear-gradient(45deg, #DF8908, #B415FF) 1;
+    cursor: default;
+    transition: transform 0.2s;
 }
 
-.about-skills {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.about-skill {
-    display: flex;
-    gap: 50px;
-    text-align: center;
-    transition: 0.2s;
-}
-
-.about-skill p {
-    min-width: 150px;
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.about-skill hr {
-    outline: none;
-    border: none;
-    width: 50%;
-    height: 8px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
-}
-
-.about-skill:hover {
+.tech-skill-pill:hover {
     transform: scale(1.05);
-    transition: 0.3s;
+    background: linear-gradient(264deg, #df890855, #b415ff55); 
 }
 
-.about-media a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
+/* Social Links */
+.about-social-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text left */
+    gap: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #333; /* Visual separation line */
 }
 
-.about-media img {
-    width: 35px;
-    height: 35px;
+.social-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .about-media {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
 }
 
+.about-media:hover {
+    transform: translateX(5px);
+    color: #B415FF; /* Highlight link on hover */
+}
 
- @media (max-width: 768px) {
-    .about {
-        margin: 40px 20px;
-        gap: 40px;
-    }
-    .about-title {
-        font-size: 36px;
-        text-align: center;
-    }
+.about-media a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.about-media:hover a {
+    color: #B415FF;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 1024px) {
     .about-section {
         flex-direction: column;
         gap: 30px;
         align-items: center;
     }
     .about-left img {
-        width: 180px;
+        width: 250px;
     }
     .about-right {
-        gap: 40px;
-        align-items: center;
+        gap: 30px;
     }
-    .about-para {
-        font-size: 18px;
-        text-align: center;
-    }
-    .about-skill {
+    .about-skills-and-socials {
+        flex-direction: row; /* Keep skills and socials side-by-side if space allows */
         gap: 20px;
-        flex-direction: column;
-        align-items: center;
+        padding: 0;
     }
-    .about-skill p  {
-        min-width: auto;
-        font-size: 20px;
+    .about-social-links {
+        border-left: none; /* Remove border */
+        padding-left: 0;
+        align-items: center; /* Center links */
     }
-    .about-skill td  {
-        min-width: auto;
-        font-size: 20px;
+    .tech-stack-grid {
+        flex: 2;
     }
-    .about-media {
-        justify-content: center;
-        gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .about {
+        margin: 40px 20px;
+        gap: 30px;
     }
-} 
+    .about-title h1 {
+        font-size: 40px;
+    }
+    .about-left img {
+        width: 180px;
+    }
+    .about-skills-and-socials {
+        flex-direction: column; /* Stack skills and socials vertically */
+        gap: 30px;
+    }
+    .about-info-card {
+        padding: 20px;
+    }
+    .about-info-card p {
+        font-size: 16px;
+    }
+    .about-tagline {
+        font-size: 18px !important;
+    }
+    .tech-stack-grid, .about-social-links {
+        width: 100%;
+    }
+    .about-social-links {
+        align-items: flex-start; /* Back to left-aligning on mobile */
+    }
+}
