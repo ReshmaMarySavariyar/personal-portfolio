@@ -18,7 +18,7 @@ import SoftSkills from './Componets/SoftSkills/SoftSkills'
 function App() {
       useEffect(() => {
     // Initialize Google Analytics with your Measurement ID
-    ReactGA.initialize("G-TXG5NTZZ39");
+    ReactGA.initialize("G-41CFYPC2XN");
     ReactGA.send("pageview");
   }, []);
 
